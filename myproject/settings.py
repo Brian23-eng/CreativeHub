@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django_registration',
     'bootstrap4',
     'crispy_forms',
+    'artist.apps.ArtistConfig',
 ]
 
 MIDDLEWARE = [
