@@ -8,4 +8,13 @@ class Profile(models.Model):
     bio = models.TextField(max_length=500, blank=True)
     contact = models.IntegerField(blank=True)
     user = models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True)
+    
+    
+class Post(models.Model):
+    title: models.CharField(blank=False, max_length=500)
+    ig_url= models.CharField(max_length=100, blank=True)
+    description =models.TextField(max_length=500, blank=False)
+    photo = models.ImageField(blank=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="posts")
+    date = models.DateField(auto_now_add=True, blank=True)
 
