@@ -17,4 +17,9 @@ class Post(models.Model):
     photo = models.ImageField(blank=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="posts")
     date = models.DateField(auto_now_add=True, blank=True)
-
+    
+class Comments(models.Model):
+    comment = models.CharField(max_length=100)
+    posted = models.DateTimeField(auto_now=True)
+    image = models.ForeignKey(Post,on_delete=models.CASCADE)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
