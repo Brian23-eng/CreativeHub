@@ -27,6 +27,7 @@ urlpatterns = [
     path('', include('artist.urls')),
     path('accounts/', include('django_registration.backends.one_step.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
+    # path('logout/',views.LogoutView, {"next_page": '/'}),
 ]
 
 if settings.DEBUG:

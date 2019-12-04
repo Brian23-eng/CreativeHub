@@ -31,4 +31,11 @@ def post_image(request):
         posts = None
     return rebder(request,'post_image.html',{'posts': posts, 'forms':forms})
 
+@login_required
+def logoutView(request):
+    if request.method == 'POST':
+        logout(request)
+        print('loged out')
+    return render(request, 'home.html')
+
 
