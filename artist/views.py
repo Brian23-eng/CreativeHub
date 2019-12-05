@@ -54,4 +54,8 @@ def edit_profile(request, username):
     return render(request, 'edit.html', params)
 
 
+def profile(request, username):
+    return render(request, 'profile.html')
+
+
 
