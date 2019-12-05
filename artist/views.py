@@ -15,6 +15,8 @@ def photos(request):
     posts = Post.all_posts()
     return render(request, 'photo.html',{'posts':posts})
 
+
+@login_required(login_url='login')
 def post_image(request):
     if request.method == 'POST':
         form = PostImagesForm(request.POST, request.FILES)
@@ -30,7 +32,7 @@ def post_image(request):
         posts = Post.objects.all()
     except Post.DoesNotExist:
         posts = None
-    return render(request,'post_image.html',{'posts': posts, 'forms':forms})
+    return render(request,'post_image.html',{'posts': posts, 'form':form})
 
 def edit_profile(request, username):
     user = User.objetcs.get(username=username)

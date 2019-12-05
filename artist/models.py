@@ -26,8 +26,8 @@ class Profile(models.Model):
     
     
 class Post(models.Model):
-    title: models.CharField(blank=False, max_length=500)
-    ig_url= models.CharField(max_length=100, blank=True)
+    title = models.CharField(blank=False, max_length=500)
+    instagram = models.CharField(max_length=100, blank=True)
     description =models.TextField(max_length=500, blank=False)
     photo = models.ImageField(blank=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="posts")
