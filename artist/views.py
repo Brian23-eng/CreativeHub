@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, Http404
 from django.contrib.auth.decorators import login_required
 from . models import Post, Profile, Comments
 from . forms import PostComments, PostImagesForm,PostProfile
@@ -58,6 +58,15 @@ def edit_profile(request, username):
 
 def profile(request, username):
     return render(request, 'profile.html')
+
+def single_art(request, art_id):
+    try:
+        posts = Post.objects.get(id=art_id)
+    except DoesNotExist:
+        raise Http404()
+    return render(request,'single_art.html',{'posts':posts})
+        
+    
 
 
 
