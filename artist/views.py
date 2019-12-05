@@ -59,12 +59,22 @@ def edit_profile(request, username):
 def profile(request, username):
     return render(request, 'profile.html')
 
-def single_art(request, art_id):
-    try:
-        arts = Post.objects.get(id=art_id)
-    except DoesNotExist:
-        raise Http404()
-    return render(request,'single_art.html',{'arts':arts})
+def single_art(request, art_id): 
+    arts = Post.objects.get(id=art_id)
+    comments = Comments.get_comment_by_image(id = art_id)
+    current_user = request.user
+    if request.method == 'POST':
+        form = PostComments(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.image = image
+            comment.user = request.user
+            comment.save()
+            return redirect('single-art', art_id = art_id )
+        
+    else:
+        form = PostComments()
+    return render(request, 'single_art.html', {'arts':arts,'form':form, 'comments':comments})
         
     
 
