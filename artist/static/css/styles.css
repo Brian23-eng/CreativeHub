@@ -79,3 +79,7 @@ hr.style-three:before {
         color: #555;
     }
 }
+
+li {
+    list-style-type: none;
+}
