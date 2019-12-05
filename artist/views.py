@@ -61,10 +61,10 @@ def profile(request, username):
 
 def single_art(request, art_id):
     try:
-        posts = Post.objects.get(id=art_id)
+        arts = Post.objects.get(id=art_id)
     except DoesNotExist:
         raise Http404()
-    return render(request,'single_art.html',{'posts':posts})
+    return render(request,'single_art.html',{'arts':arts})
         
     
 

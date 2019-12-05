@@ -21,13 +21,11 @@
                 {% if user.is_authenticated %}
 
                 <li class="nav-item dropdown">
-                    <a href="{% url 'photos' %}" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="user">{{ user.username|title }}</span><img src="{{ user.profile. }}">
+                    <a href="{% url 'photos' %}" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="">{{ user.username|title }}</span><img src="{{ user.profile. }}">
                         
                         </a>
                     <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item text-center" href="{% url 'profile' user.username %}">Profile</a>
-                        <hr>
-                        <a class="dropdown-item text-center" href="/edit"> Edit profile</a>
                         <hr>
                         <a href="{% url 'logout' %}" class="text-center dropdown-item">Log Out</a>
                     </div>
@@ -38,7 +36,6 @@
                 </li>
                 {% else %}
                 <li class='nav-item'><a href="/accounts/login" class="nav-link ">Login</a></li>
-                <li class='nav-item'><a href="/accounts/register" class="nav-link ">Register</a></li>
                 <li class="nav-item"><a href="#" class="nav-link font-weight-bold">About</a></li>
                 {% endif %}
             </div>

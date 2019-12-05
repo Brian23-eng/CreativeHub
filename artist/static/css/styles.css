@@ -87,3 +87,10 @@ li {
 .hub {
     color: black;
 }
+
+.tit,
+.desc,
+.user,
+.dat {
+    color: black;
+}
