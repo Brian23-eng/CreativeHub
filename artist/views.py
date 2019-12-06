@@ -3,6 +3,9 @@ from django.contrib.auth.decorators import login_required
 from . models import Post, Profile, Comments
 from . forms import PostComments, PostImagesForm,PostProfile
 from django.contrib.auth.models import User
+from friendship.models import Friend, Follow, Block
+from friendship.exceptions import AlreadyExistsError
+
 
 
 def home(request):
@@ -12,12 +15,14 @@ def home(request):
 
 @login_required(login_url='login')
 def photos(request):
+    title = 'Creative || Hub'
     posts = Post.objects.all()
-    return render(request,'photo.html',{'posts':posts})
+    return render(request,'photo.html',{'posts':posts , 'title':title})
 
 
 @login_required(login_url='login')
 def post_image(request):
+    title = 'Creative || Hub'
     if request.method == 'POST':
         form = PostImagesForm(request.POST,request.FILES)
         
@@ -39,9 +44,10 @@ def post_image(request):
         posts = Post.objects.all()
     except Post.DoesNotExist:
         posts = None
-    return render(request,'post_image.html',{'posts': posts, 'form':form})
+    return render(request,'post_image.html',{'posts': posts, 'form':form, 'title':title})
 
 def edit_profile(request, username):
+    title = 'Creative || Hub'
     user = User.objetcs.get(username=username)
     if request.method == 'POST':
         user_form = PostProfile(instance=request.user)
@@ -57,16 +63,19 @@ def edit_profile(request, username):
         
     params = {
         'user_form': user_form,
-        'prof_form': prof_form
+        'prof_form': prof_form,
+        'title':title
     }
     
     return render(request, 'edit.html', params)
 
 
 def profile(request, username):
-    return render(request, 'profile.html')
+    title = 'Creative || Hub'
+    return render(request, 'profile.html', {'title': title})
 
 def single_art(request, art_id): 
+    title = 'Creative || Hub'
     arts = Post.objects.get(id=art_id)
     comments = Comments.get_comment_by_image(id = art_id)
     current_user = request.user
@@ -81,7 +90,7 @@ def single_art(request, art_id):
         
     else:
         form = PostComments()
-    return render(request, 'single_art.html', {'arts':arts,'form':form, 'comments':comments})
+    return render(request, 'single_art.html', {'arts':arts,'form':form, 'comments':comments, 'title':title})
         
     
 
