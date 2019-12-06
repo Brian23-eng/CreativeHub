@@ -26,13 +26,6 @@ def post_image(request):
         print(request.FILES)
         
         if form.is_valid():
-            # print(photo)
-            # title = form.cleaned_data['title']
-            # instagram = form.cleaned_data['instagram']
-            # description = form.cleaned_data['description']
-            # 
-            # post = Post(title=title,instagram=instagram,description=description, photo=photo ,user=request.user)
-            # post.save()
             post = form.save(commit=False)
             post.user = request.user
             post.save()
