@@ -4,7 +4,7 @@ from . models import Profile, Comments, Post
 class PostImagesForm(forms.ModelForm):
     class Meta:
         model = Post
-        exclude = ['user', 'date']
+        exclude = ['user', 'date',]
 
 
 class PostComments(forms.ModelForm):

@@ -1,10 +1,10 @@
-{% extends 'base.html' %}{% block content %}
+{% extends 'base.html' %}{% load bootstrap4 %}{% block content %}
 
-<div class="container-fluid" style="margin-top: 10%;">
+<div class="container-fluid" style="margin-top: 10%; margin-bottom: 7%;">
     <div class="row">
         <div class="col-md-6">
             <div class="card mb-3">
-                <img class="" src="{{ arts.photo.url }}" alt="{{arts.title}}">
+                <img class="" src="{{ arts.photo.url }}" style="height: 450px;" alt="{{arts.title}}">
 
                 <div class="card-body">
                     <h4 class="card-title tit">{{arts.title}}</h4>
@@ -17,10 +17,34 @@
                         <div class="col-md-6">
                             <p class="card-text dat">On: <small>{{arts.date}}</small></p>
                         </div>
-
+                    </div>
+                    <div>
+                        <p class="card-text desc">{{comments|length}} comments</p>
                     </div>
                 </div>
             </div>
+            <form action="{% url 'single-art' arts.id %}" method="POST" class="bot">
+                {% csrf_token %} {% bootstrap_form form %}
+                <input type="submit" class="btn btn-success" value="Update">
+            </form>
+
+        </div>
+        <div class="col-md-6">
+            <h5>Comments</h5>
+            <hr> {% for comment in comments %}
+            <div>
+                <ul class="list-inline home-list">
+                    <li class="list-inline-item">
+                        <a href="{% url 'profile' username=comment.user.username %}">{{comment.user.username}}</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <p>{{comment.comment}} </p>
+                    </li>
+                </ul>
+            </div>
+            {% empty %}
+            <h4>There are no comments yet</h4>
+            {% endfor %}
         </div>
     </div>
 </div>

@@ -12,21 +12,35 @@ def home(request):
 
 @login_required(login_url='login')
 def photos(request):
-    posts = Post.all_posts()
-    return render(request, 'photo.html',{'posts':posts})
+    posts = Post.objects.all()
+    return render(request,'photo.html',{'posts':posts})
 
 
 @login_required(login_url='login')
 def post_image(request):
     if request.method == 'POST':
-        form = PostImagesForm(request.POST, request.FILES)
+        form = PostImagesForm(request.POST,request.FILES)
+        
+        # photo = f'images/{request.POST["photo"]}'
+        print(form)
+        print(request.FILES)
+        
         if form.is_valid():
+            # print(photo)
+            # title = form.cleaned_data['title']
+            # instagram = form.cleaned_data['instagram']
+            # description = form.cleaned_data['description']
+            # 
+            # post = Post(title=title,instagram=instagram,description=description, photo=photo ,user=request.user)
+            # post.save()
             post = form.save(commit=False)
             post.user = request.user
             post.save()
+            return redirect(photos)
             
     else:
         form = PostImagesForm()
+        print('method is not post')
         
     try:
         posts = Post.objects.all()
@@ -67,7 +81,7 @@ def single_art(request, art_id):
         form = PostComments(request.POST)
         if form.is_valid():
             comment = form.save(commit=False)
-            comment.image = image
+            comment.arts = arts
             comment.user = request.user
             comment.save()
             return redirect('single-art', art_id = art_id )
