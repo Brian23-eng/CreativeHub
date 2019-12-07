@@ -17,6 +17,7 @@ def home(request):
 def photos(request):
     title = 'Creative || Hub'
     posts = Post.objects.all()
+    form = subscribtionForm()
     return render(request,'photo.html',{'posts':posts , 'title':title})
 
 
@@ -101,6 +102,18 @@ def unfollow(request, user_id):
     follow = Follow.objects.remove_follower(request.user, other_user)
 
     return redirect('single-art')
+
+def subscribe(request):
+    name =  request.POST.get('Your_name')
+    email = request.POST.get('emil')
+    
+    
+    recipient = subscribtionForm(name=name, email=email)
+    recipient.save()
+    send_welcome_email(name, email)
+    data = {'success': 'You have been successfully Subscribed to CreativeHub'}
+    return JsonResponse(data)
+    
 
         
     

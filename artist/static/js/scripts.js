@@ -9,6 +9,26 @@ $(function() {
 });
 
 
-$('#myModal').on('shown.bs.modal', function() {
-    $('#myInput').trigger('focus')
-})
+$(document).ready(function() {
+        $('form').submit(function(event) {
+                event.preventDefault()
+
+                form = $('form')
+
+
+
+                $.ajax({
+                        'url': '/ajax/subscribe/',
+                        'type': 'POST',
+                        'data': form.serialize(),
+                        'dataType': 'json',
+                        'success': function(data) {
+                            alert(data['success'])
+                        },
+                    }) // End of submit event
+
+                $('#id_your_name').val('')
+                $("#id_email").val('')
+            }) // End of submit event
+
+    }) // End of document ready function
