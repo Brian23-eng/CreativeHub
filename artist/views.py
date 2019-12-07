@@ -78,6 +78,7 @@ def single_art(request, art_id):
     title = 'Creative || Hub'
     arts = Post.objects.get(id=art_id)
     comments = Comments.get_comment_by_image(id = art_id)
+    
     current_user = request.user
     if request.method == 'POST':
         form = PostComments(request.POST)
@@ -91,6 +92,24 @@ def single_art(request, art_id):
     else:
         form = PostComments()
     return render(request, 'single_art.html', {'arts':arts,'form':form, 'comments':comments, 'title':title})
+
+
+
+def follow(request, user_id):
+    other_user = User.objects.get(id=user_id)
+    follow = Follow.objects.add_follower(request.user, other_user)
+
+    return redirect('single-art')
+
+
+@login_required(login_url='/accounts/login/')
+def unfollow(request, user_id):
+    other_user = User.objects.get(id=user_id)
+
+    follow = Follow.objects.remove_follower(request.user, other_user)
+
+    return redirect('single-art')
+
         
     
 
