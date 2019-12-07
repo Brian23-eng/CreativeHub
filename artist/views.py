@@ -72,10 +72,15 @@ def edit_profile(request, username):
 
 def profile(request, username):
     title = 'Creative || Hub'
-    return render(request, 'profile.html', {'title': title})
+    follow = len(Follow.objects.followers(users))
+    following = len(Follow.objects.following(users))
+    people = Follow.objects.following(request.user)
+    return render(request, 'profile.html', {'title': title, 'following':following, 'follow': follow, 'people':people})
 
 def single_art(request, art_id): 
     title = 'Creative || Hub'
+    follow = len(Follow.objects.followers(users))
+    following = len(Follow.objects.following(users))
     arts = Post.objects.get(id=art_id)
     comments = Comments.get_comment_by_image(id = art_id)
     
@@ -91,7 +96,7 @@ def single_art(request, art_id):
         
     else:
         form = PostComments()
-    return render(request, 'single_art.html', {'arts':arts,'form':form, 'comments':comments, 'title':title})
+    return render(request, 'single_art.html', {'arts':arts,'form':form, 'comments':comments, 'title':title, 'follow':follow, 'following':following})
 
 
 
