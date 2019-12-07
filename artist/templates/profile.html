@@ -13,6 +13,13 @@
 
             <h5 class="text-center mt-3">{{user.username}}</h5>
             <p class="text-center"> {{user.email}}</p>
+            <div class="text-center">
+                <span>
+                            {% autoescape on %}
+                            {{user.bio| safe}}
+                            {% endautoescape %}
+                        </span>
+            </div>
             {% if profile.username == username %}
             <div class="text-center" style="color: black;">
                 <button class="btn btn-sm btn-outline-dark"><a href="{% url 'edit' user.username  %}"><span class="site">Edit profile</span></a> </button>
