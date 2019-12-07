@@ -72,10 +72,12 @@ def edit_profile(request, username):
 
 def profile(request, username):
     title = 'Creative || Hub'
+    profile = User.objects.get(username=username)
+    users = User.objects.get(username=username)
     follow = len(Follow.objects.followers(users))
     following = len(Follow.objects.following(users))
-    people = Follow.objects.following(request.user)
-    return render(request, 'profile.html', {'title': title, 'following':following, 'follow': follow, 'people':people})
+    people_following = Follow.objects.following(request.user)
+    return render(request, 'profile.html', {'title': title, 'following':following, 'follow':follow, 'users':users, 'people_following':people_following})
 
 def single_art(request, art_id): 
     title = 'Creative || Hub'
