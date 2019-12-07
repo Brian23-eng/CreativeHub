@@ -14,9 +14,18 @@
 
             <h5 class="text-center mt-3">{{user.username}}</h5>
             <p class="text-center"> {{user.email}}</p>
+            {% if profile.username == username %}
             <div class="text-center" style="color: black;">
                 <button class="btn btn-sm btn-outline-dark"><a href=""><span class="site">Edit profile</span></a> </button>
             </div>
+            {% else %} {% if profile in people_following %}
+            <li class="list-inline-item">
+                <a href="#" class="btn btn-sm">Following</a>
+            </li>
+            <li class="list-inline-item">
+                <a href="{% url 'follow' user_id=profile.id %}" class="btn btn-sm">Follow</a>
+            </li>
+            {% endif %}{% endif %}
         </div>
         <div class="col-md-3"></div>
     </div>
