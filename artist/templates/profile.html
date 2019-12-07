@@ -6,9 +6,8 @@
         <div class="col-md-6 mt-4">
             <div class="text-center">
 
-                {% if profile.profile_picure %}
-
-                <img src="{{profile.profile_picture.url}}" alt="" eight="125px" width="125px"> {% else %}
+                {% if user.profile_picture %}
+                <img src="{{user.profile_picture.url}}" alt="" eight="125px" width="125px"> {% else %}
                 <img src="https://www.trzcacak.rs/myfile/detail/508-5082157_black-circle-png-shadow-default-profile-picture-round.png" height="125px" width="125px"> {% endif %}
             </div>
 
@@ -16,7 +15,7 @@
             <p class="text-center"> {{user.email}}</p>
             {% if profile.username == username %}
             <div class="text-center" style="color: black;">
-                <button class="btn btn-sm btn-outline-dark"><a href=""><span class="site">Edit profile</span></a> </button>
+                <button class="btn btn-sm btn-outline-dark"><a href="{% url 'edit' user.username  %}"><span class="site">Edit profile</span></a> </button>
             </div>
             {% else %} {% if profile in people_following %}
             <li class="list-inline-item">
@@ -27,7 +26,19 @@
             </li>
             {% endif %}{% endif %}
         </div>
-        <div class="col-md-3"></div>
+
+        <div class="col-md-3">
+
+            <ul class="list-inline">
+                <li class="list-inline-item">
+                    <span class="font-weight-bold">{{follow}} </span> followers
+                </li>
+                <li class="list-inline-item">
+                    <span class="font-weight-bold">{{following}} </span> following
+                </li>
+
+            </ul>
+        </div>
     </div>
 </div>
 
