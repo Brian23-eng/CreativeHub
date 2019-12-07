@@ -32,7 +32,7 @@
             </form>
 
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6" style="margin-bottom: 4%;">
             <h5>Comments</h5>
             <hr> {% for comment in comments %}
             <div>
@@ -43,12 +43,16 @@
                     <li class="list-inline-item">
                         <p>{{comment.comment}} </p>
                     </li>
+
                 </ul>
+
             </div>
             {% empty %}
             <h4>There are no comments yet</h4>
             {% endfor %}
+            <hr>
         </div>
+
     </div>
 </div>
 {% endblock %}
