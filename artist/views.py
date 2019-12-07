@@ -1,11 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404, Http404
 from django.contrib.auth.decorators import login_required
 from . models import Post, Profile, Comments
-from . forms import PostComments, PostImagesForm,PostProfile, UpdateUserProfileForm,subscribtionForm
+from . forms import PostComments, PostImagesForm,PostProfile, UpdateUserProfileForm
 from django.contrib.auth.models import User
 from friendship.models import Friend, Follow, Block
 from friendship.exceptions import AlreadyExistsError
-from django.http import JsonResponse
 
 
 
@@ -18,8 +17,7 @@ def home(request):
 def photos(request):
     title = 'Creative || Hub'
     posts = Post.objects.all()
-    form = subscribtionForm()
-    return render(request,'photo.html',{'posts':posts , 'title':title, 'form':form})
+    return render(request,'photo.html',{'posts':posts , 'title':title})
 
 
 @login_required(login_url='login')
@@ -48,6 +46,7 @@ def edit_profile(request, username):
     if request.method == 'POST':
         prof_form = UpdateUserProfileForm(request.POST, request.FILES, instance=request.user.profile)
         if prof_form.is_valid():
+            
             prof_form.save()
             return redirect('profile', user.username)
     else:
@@ -103,17 +102,6 @@ def unfollow(request, user_id):
 
     return redirect('single-art')
 
-def subscribe(request):
-    name =  request.POST.get('Your_name')
-    email = request.POST.get('emil')
-    
-    
-    recipient = subscribtionForm(name=name, email=email)
-    recipient.save()
-    send_welcome_email(name, email)
-    data = {'success': 'You have been successfully Subscribed to CreativeHub'}
-    return JsonResponse(data)
-    
 
         
     
