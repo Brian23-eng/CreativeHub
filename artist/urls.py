@@ -12,7 +12,7 @@ urlpatterns=[
     path('single_art/<art_id>', views.single_art, name='single-art'),
     path('unfollow/<user_id>', views.unfollow, name='unfollow'),
     path('follow/<user_id>', views.follow, name='follow'),
-    path(r'ajax/subscribe', views.subscribe, name='subscribe')
+    path('ajax/subscribe', views.subscribe, name='subscribe')
 ]
 
 if settings.DEBUG:

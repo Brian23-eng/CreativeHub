@@ -48,7 +48,6 @@ def edit_profile(request, username):
     if request.method == 'POST':
         prof_form = UpdateUserProfileForm(request.POST, request.FILES, instance=request.user.profile)
         if prof_form.is_valid():
-            
             prof_form.save()
             return redirect('profile', user.username)
     else:
