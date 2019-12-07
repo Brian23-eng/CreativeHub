@@ -19,7 +19,7 @@ def photos(request):
     title = 'Creative || Hub'
     posts = Post.objects.all()
     form = subscribtionForm()
-    return render(request,'photo.html',{'posts':posts , 'title':title})
+    return render(request,'photo.html',{'posts':posts , 'title':title, 'form':form})
 
 
 @login_required(login_url='login')
