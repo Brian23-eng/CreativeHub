@@ -173,3 +173,26 @@ li {
         display: none;
     }
 }
+
+.bet {
+    font-family: 'Gupter', serif;
+    font-size: 70px;
+    color: #D7DBDD;
+    font-weight: bolder;
+    text-shadow: 3px 3px #707B7C;
+}
+
+.para {
+    font-family: 'Baskervville', serif;
+    font-size: 20px;
+}
+
+.icon {
+    margin-top: 4%;
+}
+
+.fa,
+.ta,
+.in {
+    color: black;
+}

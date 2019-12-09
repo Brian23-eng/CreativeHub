@@ -15,11 +15,8 @@
             </li>
             <div id="navbarSupportedContent" class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
-
-
                 </ul>
                 {% if user.is_authenticated %}
-
                 <li class="nav-item dropdown">
                     <a href="{% url 'photos' %}" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="">{{ user.username|title }}</span><img src="{{ user.profile. }}">
                         
