@@ -11,7 +11,7 @@ from friendship.exceptions import AlreadyExistsError
 def home(request):
     title = 'Creative || Hub'
     
-    return render(request, 'index.html',{'title': title})
+    return render(request, 'landing/index.html',{'title': title})
 
 @login_required(login_url='login')
 def photos(request):

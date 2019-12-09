@@ -1,12 +1,25 @@
 {% extends 'base.html' %} {% load bootstrap4 %} {% load static%} {% block content %}
-
-<div class="container-fluid" style="margin-top: 10%; margin-bottom:5%;">
-    <h3 class="text-center hub">ArtHub</h3>
+<header class="vida">
+    <div class="overlay"></div>
+    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+                  <source src="static/images/ODEITH_ANAMORPHIC____Double_corner_3d_letters____2017(720p).mp4" type="video/mp4">
+                </video>
+    <div class="container h-100">
+        <div class="d-flex h-100 text-center align-items-center">
+            <div class="w-100 text-white">
+                <h1 class="display-3">CreativeHub</h1>
+                <p class="lead mb-0">Showcasing art in your hood and the best artists. Post, comment and follow your best artist</p>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container-fluid po" style="margin-top: 10%; margin-bottom:5%;">
+    <h3 class="text-center hub">Arts</h3>
     <div class="row">
         {% for post in posts %}
         <div class="col-md-4" style="margin-top: 7%;">
             <div class="card">
-                <div class="view overlay">
+                <div class="view overlay image-box">
                     <a href="{% url 'single-art' post.id %}"><img class="card-img-top" src="{{ post.photo.url }}" style="height: 400px;" alt="{{photo.title}}"></a>
                     <a href="">
                         <div class="mask rgba-white-slight"></div>
