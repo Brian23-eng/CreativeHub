@@ -194,10 +194,16 @@ li {
     margin-top: 4%;
 }
 
-.fa,
-.ta,
+.fa {
+    color: #4A235A;
+}
+
+.ta {
+    color: blue;
+}
+
 .in {
-    color: black;
+    color: red;
 }
 
 .bra {
@@ -205,7 +211,27 @@ li {
     font-size: 40px;
 }
 
+.ed {
+    font-family: 'Julius Sans One', sans-serif;
+}
+
 #nab {
     font-family: 'Pragati Narrow', sans-serif;
     font-size: 20px;
+}
+
+#a {
+    color: #1C2833;
+}
+
+#t {
+    color: #641E16;
+}
+
+#r {
+    color: #145A32;
+}
+
+#s {
+    color: #1A5276;
 }
