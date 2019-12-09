@@ -86,6 +86,9 @@ li {
 
 .hub {
     color: black;
+    font-family: 'Abel', sans-serif;
+    font-size: 75px;
+    text-shadow: 2px 2px hsla(hue, saturation, lightness, alpha);
 }
 
 .tit,
@@ -195,4 +198,14 @@ li {
 .ta,
 .in {
     color: black;
+}
+
+.bra {
+    font-family: 'BenchNine', sans-serif;
+    font-size: 40px;
+}
+
+#nab {
+    font-family: 'Pragati Narrow', sans-serif;
+    font-size: 20px;
 }
