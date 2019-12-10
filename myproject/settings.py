@@ -89,6 +89,13 @@ DATABASES = {
     }
 }
 
+# Email configurations
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'b.odhiambo.bo@gmail.com'
+EMAIL_HOST_PASSWORD = 'stephen13'
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
