@@ -26,7 +26,7 @@
 
                 </div>
             </div>
-            <form action="{% url 'single-art' arts.id %}" method="POST" class="bot">
+            <form action="{% url 'single-art' arts.id %}" method="POST" class="">
                 {% csrf_token %} {% bootstrap_form form %}
                 <input type="submit" class="btn btn-success" value="Update">
             </form>

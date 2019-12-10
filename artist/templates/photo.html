@@ -49,28 +49,35 @@
         {% endfor %}
     </div>
     <div class="bottom">
-        <footer>
-            <div class="row">
+        <footer class="bot">
+            <div class="row word">
                 <div class="col-md-4">
-                    <h3>Talk to Us</h3>
-                    <p>About Us</p>
+                    <hr>
+                    <h3 class="tal">Talk to Us</h3>
                     <p>Contacts</p>
+                    <p>About Us</p>
                 </div>
                 <div class="col-md-4">
-                    <h4>Daily NewsLetter</h4><br>
+                    <hr>
+                    <h4 class="dai">Daily NewsLetter</h4><br>
                     <form action="{%url 'photos'%}" method="post">
                         {%csrf_token%} {% bootstrap_form form %}
-                        <input type="submit" value="Subscribe">
+                        <input type="submit" value="Subscribe" class="btn btn-sm bt-outline btn-primary">
                     </form>
                 </div>
                 <div class="col-md-4">
-                    <h5>Terms and Conditions</h5>
-                    <p>The site is strictly for art pieces and in no way are you allowed to post inapproriate pieces</p>
-                    <p>The site is totaly free and no one will be asked to pay or provide anything interms of money or tokens</p>
-                    <p>Agreeing to our terms and conditions automatically allow us to have access to your email and username</p>
+                    <hr>
+                    <h5 class="term">Terms and Conditions</h5>
+                    <div class="an">
+                        <p>The site is strictly for art pieces and in no way are you allowed to post inapproriate pieces</p>
+                        <p>The site is totaly free and no one will be asked to pay or provide anything interms of money or tokens</p>
+                        <p>Agreeing to our terms and conditions automatically allow us to have access to your email and username</p>
+
+                    </div>
 
                 </div>
             </div>
+            <p class="text-center copy">&copyBranTech: All rights-reserved</p>
         </footer>
     </div>
 </div>

@@ -12,6 +12,11 @@ def home(request):
     title = 'Creative || Hub'
     
     return render(request, 'landing/index.html',{'title': title})
+def about(request):
+    title = 'Creative || Hub'
+    
+    return render(request, 'about.html',{'title': title})
+    
 
 @login_required(login_url='login')
 def photos(request):
@@ -43,6 +48,7 @@ def post_image(request):
     return render(request,'post_image.html',{'posts': posts, 'form':form, 'title':title})
 
 def edit_profile(request, username):
+    title = 'Creative || Hub'
     user = User.objects.get(username=username)
     if request.method == 'POST':
         prof_form = UpdateUserProfileForm(request.POST, request.FILES, instance=request.user.profile)
@@ -53,7 +59,8 @@ def edit_profile(request, username):
     else:
         prof_form = UpdateUserProfileForm(instance=request.user.profile)
     params = {
-        'prof_form': prof_form
+        'prof_form': prof_form,
+        'title': title
     }
     return render(request, 'edit.html', params)
 
