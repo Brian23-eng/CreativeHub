@@ -98,6 +98,16 @@ li {
     color: black;
 }
 
+.desc {
+    font-family: 'Abel', sans-serif;
+    font-size: 20px;
+}
+
+.tit {
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+}
+
 * {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -271,4 +281,41 @@ li {
 
 .bottom {
     padding-top: 40px;
+}
+
+.commo {
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: black;
+}
+
+.com {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: bold;
+}
+
+.use {
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.ny {
+    background-color: #D0D3D4;
+}
+
+.no {
+    font-family: 'Rajdhani', sans-serif;
+    font-style: italic;
+}
+
+.site {
+    color: black;
+    text-decoration: none;
+}
+
+.site:hover {
+    color: black;
+    text-decoration: none;
 }

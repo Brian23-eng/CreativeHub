@@ -3,12 +3,15 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8 bg-white poster">
-            <h3 class="text-center tt ">Add Your Art</h3>
-            <form action="" method="POST" enctype="multipart/form-data" novalidate>
-                {% csrf_token %} {{ form|crispy }}
-                <!-- <input type="file" name="photo" id="" required> -->
-                <button type="submit" class="btn btn-sm btn-info "> Post</button>
-            </form>
+            <h3 class="text-center tt " style='margin-top:4%;'>Add Your Art</h3>
+            <hr>
+            <div class="poster">
+                <form action="" method="POST" enctype="multipart/form-data" novalidate>
+                    {% csrf_token %} {{ form|crispy }}
+
+                    <br><button type="submit" class="btn btn-sm btn-info "> Post</button>
+                </form><br>
+            </div>
         </div>
         <div class="col-md-2"></div>
     </div>
