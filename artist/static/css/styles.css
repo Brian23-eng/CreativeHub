@@ -346,14 +346,16 @@ li {
 }
 
 .miss {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.61), rgba(0, 0, 0, 0.61)), url("http://i.imgur.com/yNpNj.jpg");
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    background-size: cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.61), rgba(0, 0, 0, 0.61)), url("https://www.molotow.com/fileadmin/Dateien/_processed_/1/6/csm_Premium_1400x870_Corp_f9863bc249.jpg") center/cover no-repeat fixed;
+    min-height: 50vh;
     padding: 15%;
     color: white;
+}
+
+.team {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.61), rgba(0, 0, 0, 0.61)), url("https://exoft.net/wp-content/uploads/2016/10/Communication-issues.jpg");
+    min-height: 50vh;
+    background-size: cover;
+    color: white;
+    padding: 15%;
 }
