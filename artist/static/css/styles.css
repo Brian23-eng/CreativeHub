@@ -37,7 +37,7 @@ hr.style-three:before {
 
 .navbar .nav-link:hover,
 .navbar .nav-link:focus {
-    color: #fff;
+    color: #C0BFBE;
     text-decoration: none;
 }
 
@@ -64,7 +64,7 @@ hr.style-three:before {
 }
 
 .navbar.active .navbar-brand {
-    color: #white;
+    color: white;
 }
 
 
@@ -194,16 +194,49 @@ li {
     margin-top: 4%;
 }
 
+.fa,
+.ta,
+.in {
+    height: 100px;
+    width: 100px;
+    display: absolute;
+    justify-content: center;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 50%;
+    padding: 20%;
+    border: solid;
+    margin: 20px;
+}
+
 .fa {
     color: #4A235A;
+    text-decoration: none;
 }
 
 .ta {
     color: blue;
+    text-decoration: none;
 }
 
 .in {
     color: red;
+    text-decoration: none;
+}
+
+.fa:hover {
+    color: whitesmoke;
+    text-shadow: 2px 2px black;
+}
+
+.ta:hover {
+    color: whitesmoke;
+    text-shadow: 2px 2px black;
+}
+
+.in:hover {
+    color: whitesmoke;
+    text-shadow: 2px 2px black;
 }
 
 .bra {
@@ -234,4 +267,8 @@ li {
 
 #s {
     color: #1A5276;
+}
+
+.bottom {
+    padding-top: 40px;
 }

@@ -48,5 +48,53 @@
         </div>
         {% endfor %}
     </div>
+    <div class="bottom">
+        <footer>
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Talk to Us</h3>
+                    <p>About Us</p>
+                    <p>Contacts</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Daily NewsLetter</h4><br>
+                    <form action="{%url 'photos'%}" method="post">
+                        {%csrf_token%} {% bootstrap_form form %}
+                        <input type="submit" value="Subscribe">
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <h5>Terms and Conditions</h5>
+                    <p>The site is strictly for art pieces and in no way are you allowed to post inapproriate pieces</p>
+                    <p>The site is totaly free and no one will be asked to pay or provide anything interms of money or tokens</p>
+                    <p>Agreeing to our terms and conditions automatically allow us to have access to your email and username</p>
+
+                </div>
+            </div>
+        </footer>
+    </div>
 </div>
+
+
+<script>
+    $(document).ready(function() {
+            $('form').submit(function(event) {
+                    event.preventDefault()
+                    form = $("form")
+
+                    $.ajax({
+                            'url': '/ajax/newsletter/',
+                            'type': 'POST',
+                            'data': form.serialize(),
+                            'dataType': 'json',
+                            'success': function(data) {
+                                alert(data['success'])
+                            },
+                        }) // END of Ajax method
+                    $('#id_your_name').val('')
+                    $("#id_email").val('')
+                }) // End of submit event
+
+        }) // End of document ready function
+</script>
 {% endblock %}

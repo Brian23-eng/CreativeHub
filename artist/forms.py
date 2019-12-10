@@ -23,9 +23,8 @@ class UpdateUserProfileForm(forms.ModelForm):
         fields = ['name', 'profile_picture', 'bio']
         
         
-class subscribtionForm(forms.Form):
+class NewsLetterForm(forms.Form):
     your_name = forms.CharField(label='First Name', max_length=30)
-    email = forms.EmailField(label='Email')
-    
+    email = forms.EmailField(label='Email')                                                                                    
 
     

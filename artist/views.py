@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404, Http404
 from django.contrib.auth.decorators import login_required
 from . models import Post, Profile, Comments
-from . forms import PostComments, PostImagesForm,PostProfile, UpdateUserProfileForm
+from . forms import PostComments, PostImagesForm,PostProfile, UpdateUserProfileForm, NewsLetterForm
 from django.contrib.auth.models import User
 from friendship.models import Friend, Follow, Block
 from friendship.exceptions import AlreadyExistsError
@@ -17,7 +17,8 @@ def home(request):
 def photos(request):
     title = 'Creative || Hub'
     posts = Post.objects.all()
-    return render(request,'photo.html',{'posts':posts , 'title':title})
+    form = NewsLetterForm()
+    return render(request,'photo.html',{'posts':posts , 'title':title, 'form':form})
 
 
 @login_required(login_url='login')
@@ -101,6 +102,17 @@ def unfollow(request, user_id):
     follow = Follow.objects.remove_follower(request.user, other_user)
 
     return redirect('single-art')
+
+
+def newsletter(request):
+    name = request.POST.get('your_name')
+    email = request.POST.get('email')
+    
+    recipient = NewsLetterRecipients(name = name, email = email)
+    recipient.save()
+    send_welcome_email(name, email)
+    data = {'success': 'You have been successfully added to mailing list'}
+    return JsonResponse(data)
 
 
         
