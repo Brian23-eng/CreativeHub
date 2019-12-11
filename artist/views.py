@@ -72,7 +72,13 @@ def profile(request, username):
     follow = len(Follow.objects.followers(users))
     following = len(Follow.objects.following(users))
     people_following = Follow.objects.following(request.user)
-    return render(request, 'profile.html', {'title': title, 'following':following, 'follow':follow, 'users':users, 'people_following':people_following})
+    
+    try:
+        profile_details = Profile.get_by_id(profile.id)
+    except:
+        profile_details = Profile.filter_by_id(profile.id)
+        
+    return render(request, 'profile.html', {'title': title, 'following':following, 'follow':follow, 'users':users, 'people_following':people_following, 'profile_details':profile_details})
 
 def single_art(request, art_id): 
     title = 'Creative || Hub'

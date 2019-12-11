@@ -23,6 +23,17 @@ class Profile(models.Model):
     @receiver(post_save, sender=User)
     def save_user_profile(sender, instance, **kwargs):
         instance.profile.save()
+        
+        
+    @classmethod  
+    def get_by_id(cls, id):
+        profile = Profile.objects.get(user = id)
+        return profile
+        
+    @classmethod
+    def filter_by_id(cls, id):
+        profile = Profile.objects.filter(user = id).first()
+        return profile
     
     
 class Post(models.Model):

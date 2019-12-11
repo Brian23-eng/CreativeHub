@@ -351,11 +351,3 @@ li {
     padding: 15%;
     color: white;
 }
-
-.team {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.61), rgba(0, 0, 0, 0.61)), url("https://exoft.net/wp-content/uploads/2016/10/Communication-issues.jpg");
-    min-height: 50vh;
-    background-size: cover;
-    color: white;
-    padding: 15%;
-}

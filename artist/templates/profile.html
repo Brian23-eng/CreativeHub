@@ -51,16 +51,16 @@
             <p class="text-muted">People you may know</p>
             <hr>
             <div>
-                {% for profile in profile_picture %}
+                {% for profile in profile %}
                 <div>
-                    {% if profile.profile.photo %}
+                    {% if profile.profile_picture %}
                     <img src="{{profile.profile_picture.url}}" alt="Profile Photo" width="70" height="70" class="" style="border-radius: 50%"> {% else %}
                     <img src="https://www.trzcacak.rs/myfile/detail/508-5082157_black-circle-png-shadow-default-profile-picture-round.png" height="125px" width="125px"> {% endif %}
                     <a href="{% url 'profile' username=profile.username %}">
                         <strong class="list-inline">{{profile.username}} </strong>
                     </a>
 
-                    {%if user.username == profile.username%} {%else%} {% if profile in following%}
+                    {%if user.username == profile.username%} {%else%} {% if profile in following %}
                     <a href="{%url 'unfollow' user_id=profile.id %}" class="btn btn-sm btn-primary ml-2">Following</a> {% else %}
                     <a href="{%url 'follow' user_id=profile.id %}" class="btn btn-sm btn-primary ml-2">Follow</a> {% endif %} {% endif %}
                 </div>
