@@ -351,3 +351,55 @@ li {
     padding: 15%;
     color: white;
 }
+
+.info {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-style: italic;
+    font-size: 30px;
+}
+
+.abo {
+    color: black;
+    text-decoration: none;
+    font-size: 25px;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.ace,
+.wit,
+.nsta {
+    color: black;
+    font-family: 'Scheherazade', serif;
+    font-size: 20px;
+}
+
+.mission,
+.vision,
+.acco {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.pa1,
+.pa2,
+.pa3 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 30px;
+}
+
+.test {
+    font-family: 'Nanum Myeongjo', serif;
+}
+
+.tim {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.sing {
+    font-size: 160%;
+}
+
+.jumbotron {
+    background-color: #2ECC71;
+}

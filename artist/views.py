@@ -14,8 +14,9 @@ def home(request):
     return render(request, 'landing/index.html',{'title': title})
 def about(request):
     title = 'Creative || Hub'
+    form = NewsLetterForm()
     
-    return render(request, 'about.html',{'title': title})
+    return render(request, 'about.html',{'title': title, 'form': form})
     
 
 @login_required(login_url='login')
