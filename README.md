@@ -1,11 +1,11 @@
 # CreativeHub
 
->[Brian Odhiambo](https://github.com/Brian23-eng)  
+[Brian Odhiambo](https://github.com/Brian23-eng)  
   
 # Description  
 The project enables users post art pieces from their hood and other users can comment on the piece and even follow and subscribe to get newsletter about the web app
 
-![App live Image](static/images/img1.png "Gallery page")
+![alt text](static/images/img1.png)
 
 ![App live Image](static/images/img2.png "Different art pieces")
 
