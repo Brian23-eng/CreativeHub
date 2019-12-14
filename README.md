@@ -7,7 +7,7 @@ The project enables users post art pieces from their hood and other users can co
 
 
 ##  Live Link  
- Click [View Site](https://hoodart.herokuapp.com/)  to visit the site
+ Click [View Site](https://brantech.herokuapp.com/)  to visit the site
   
 
 ## User Story  
