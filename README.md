@@ -5,14 +5,6 @@
 # Description  
 The project enables users post art pieces from their hood and other users can comment on the piece and even follow and subscribe to get newsletter about the web app
 
-![alt text](static/images/img1.png)
-
-![App live Image](static/images/img2.png "Different art pieces")
-
-![App live Image](static/images/img3.png "Single image")
-
-![App live Image](static/images/img4.png "About Us page")
-
 
 ##  Live Link  
  Click [View Site](https://hoodart.herokuapp.com/)  to visit the site
